@@ -5,12 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import com.prilepskiy.ui.viewmodel.HomeFragmentViewModel
 import com.prilepskiy.sdk.R
-//import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
-    //val viewModel: HomeFragmentViewModel by viewModel()
+    val viewModel: HomeFragmentViewModel by viewModel()
+
+
 
 
 
@@ -20,6 +22,12 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel.getDishe()
     }
 
     companion object {

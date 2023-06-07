@@ -1,10 +1,16 @@
 package com.prilepskiy.di
 
-import com.prilepskiy.sdk.data.apiservice.CategoryApiService
-import com.prilepskiy.sdk.data.apiservice.DisheApiService
-import com.prilepskiy.sdk.data.utils.HeaderInterceptor
+
+import com.prilepskiy.data.apiservice.CategoryApiService
+import com.prilepskiy.data.apiservice.DisheApiService
+import com.prilepskiy.data.repository.CategoryRepositoryImpl
+import com.prilepskiy.data.repository.DisheRepositoryImpl
+import com.prilepskiy.data.utils.HeaderInterceptor
+import com.prilepskiy.domain.repository.CategoryRepository
+import com.prilepskiy.domain.repository.DisheRepository
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.BuildConfig
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -31,10 +37,13 @@ val apiModule = module {
             }
             .build()
     }
-    single<DisheApiService> { retrofitService(BuildConfig.API_URL).create(DisheApiService::class.java) }
-    single<CategoryApiService> { retrofitService(BuildConfig.API_URL).create(CategoryApiService::class.java) }
+    single<DisheApiService> { retrofitService("https://run.mocky.io/").create(DisheApiService::class.java) }
+    single<CategoryApiService> { retrofitService("https://run.mocky.io/").create(CategoryApiService::class.java) }
 }
 
-val repositoryModule = module{}
+val repositoryModule = module{
+    single<CategoryRepository> { CategoryRepositoryImpl(get()) }
+    single<DisheRepository> { DisheRepositoryImpl(get()) }
+}
 
 val databaseModule = module {}

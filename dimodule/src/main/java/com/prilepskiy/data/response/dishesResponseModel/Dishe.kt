@@ -1,6 +1,6 @@
-package com.prilepskiy.sdk.data.response
+package com.prilepskiy.data.response.dishesResponseModel
 
-data class DisheResponse(
+data class Dishe(
     val description: String,
     val id: Int,
     val image_url: String,
