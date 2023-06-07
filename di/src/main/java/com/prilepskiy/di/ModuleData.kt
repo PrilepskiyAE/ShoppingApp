@@ -1,5 +1,7 @@
 package com.prilepskiy.di
 
+import com.prilepskiy.sdk.data.apiservice.CategoryApiService
+import com.prilepskiy.sdk.data.apiservice.DisheApiService
 import com.prilepskiy.sdk.data.utils.HeaderInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -29,6 +31,8 @@ val apiModule = module {
             }
             .build()
     }
+    single<DisheApiService> { retrofitService(BuildConfig.API_URL).create(DisheApiService::class.java) }
+    single<CategoryApiService> { retrofitService(BuildConfig.API_URL).create(CategoryApiService::class.java) }
 }
 
 val repositoryModule = module{}
