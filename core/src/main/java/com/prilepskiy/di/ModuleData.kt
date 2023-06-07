@@ -46,8 +46,8 @@ val apiModule = module {
 }
 
 val repositoryModule = module{
-    single<CategoryRepository> { CategoryRepositoryImpl(get()) }
-    single<DisheRepository> { DisheRepositoryImpl(get()) }
+    single<CategoryRepository> { CategoryRepositoryImpl(get(),get()) }
+    single<DisheRepository> { DisheRepositoryImpl(get(),get()) }
 }
 
 val databaseModule = module {
