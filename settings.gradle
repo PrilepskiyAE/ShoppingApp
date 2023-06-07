@@ -14,8 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "ShoppingApp"
 include ':app'
-include ':dimodule'
+include ':core'
 include ':sdk'
-include ':search'
-include ':shopping_basket'
-include ':profile'

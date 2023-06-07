@@ -8,12 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.navigation.NavigationBarView.LABEL_VISIBILITY_LABELED
-import com.prilepskiy.profile.ProfileFragment
 import com.prilepskiy.sdk.R
 import com.prilepskiy.sdk.databinding.FragmentMainBinding
-import com.prilepskiy.sdk.ui.fragments.homeFragment.HomeFragment
-import com.prilepskiy.search.ui.SearchFragment
-import com.prilepskiy.shopping_basket.ui.ShoppingBasketFragment
+
 
 class MainFragment : Fragment() {
     lateinit var binding: FragmentMainBinding
