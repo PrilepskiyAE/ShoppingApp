@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.navigation.NavigationBarView.LABEL_VISIBILITY_LABELED
 import com.prilepskiy.profile.ProfileFragment
 import com.prilepskiy.sdk.R
 import com.prilepskiy.sdk.databinding.FragmentMainBinding
@@ -20,7 +21,7 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
+
         binding = FragmentMainBinding.inflate(inflater)
         return binding.root
     }
@@ -32,6 +33,7 @@ class MainFragment : Fragment() {
     }
 
     private fun onBottomNavClicks(){
+        binding.bNav.labelVisibilityMode=LABEL_VISIBILITY_LABELED
         binding.bNav.setOnItemSelectedListener {
             when(it.itemId){
 
