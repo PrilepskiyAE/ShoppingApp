@@ -21,9 +21,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 val apiModule = module {
-    fun retrofitService(api_url:String): Retrofit {
+    fun retrofitService(api_url: String): Retrofit {
 
-        return  Retrofit.Builder()
+        return Retrofit.Builder()
             .baseUrl(api_url)
             .addConverterFactory(GsonConverterFactory.create())
             .apply {
@@ -45,9 +45,9 @@ val apiModule = module {
     single<CategoryApiService> { retrofitService("https://run.mocky.io/").create(CategoryApiService::class.java) }
 }
 
-val repositoryModule = module{
-    single<CategoryRepository> { CategoryRepositoryImpl(get(),get()) }
-    single<DisheRepository> { DisheRepositoryImpl(get(),get()) }
+val repositoryModule = module {
+    single<CategoryRepository> { CategoryRepositoryImpl(get(), get()) }
+    single<DisheRepository> { DisheRepositoryImpl(get(), get()) }
 }
 
 val databaseModule = module {
@@ -59,7 +59,7 @@ val databaseModule = module {
         ).allowMainThreadQueries()
             .build()
     }
-    single {provideDisheDataBase(androidApplication())}
+    single { provideDisheDataBase(androidApplication()) }
     single { get<DisheDataBase>().disheDao }
 
     fun provideCategoryDataBase(application: Application): CategoryDataBase {
@@ -70,7 +70,7 @@ val databaseModule = module {
         ).allowMainThreadQueries()
             .build()
     }
-    single {provideCategoryDataBase(androidApplication())}
+    single { provideCategoryDataBase(androidApplication()) }
     single { get<CategoryDataBase>().categoryDao }
 
 }

@@ -1,7 +1,7 @@
 package com.prilepskiy.data.repository
 
 import com.prilepskiy.data.apiService.DisheApiService
-import com.prilepskiy.data.apiService.response.dishesResponseModel.DishesResponse
+import com.prilepskiy.data.apiService.response.dishesResponseModel.DishesListResponse
 import com.prilepskiy.data.databaseService.database.DisheDataBase
 import com.prilepskiy.data.databaseService.entity.DisheEntity
 
@@ -10,15 +10,11 @@ import com.prilepskiy.data.utils.analyzeResponse
 import com.prilepskiy.data.utils.makeApiCall
 import com.prilepskiy.domain.repository.DisheRepository
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.asFlow
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.first
 
 class DisheRepositoryImpl(private val api: DisheApiService,private val db: DisheDataBase): DisheRepository {
 
-    override suspend fun getDisheListNetwork(): ActionResult<DishesResponse> {
-        //val result: DishesResponse ?= null
+    override suspend fun getDisheListNetwork(): ActionResult<DishesListResponse> {
+        //val result: DishesListResponse ?= null
     val apiData= makeApiCall {
         analyzeResponse(api.getDishe())
     }
