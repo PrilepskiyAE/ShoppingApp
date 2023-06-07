@@ -1,7 +1,7 @@
-package com.prilepskiy.data.apiservice
+package com.prilepskiy.data.apiService
 
 
-import com.prilepskiy.data.response.CategoryResponseModel.CategoriesResponse
+import com.prilepskiy.data.apiService.response.CategoryResponseModel.CategoriesResponse
 import retrofit2.Response
 import retrofit2.http.GET
 

@@ -1,8 +1,8 @@
-package com.prilepskiy.data.apiservice
+package com.prilepskiy.data.apiService
 
 
 
-import com.prilepskiy.data.response.dishesResponseModel.DishesResponse
+import com.prilepskiy.data.apiService.response.dishesResponseModel.DishesResponse
 import retrofit2.Response
 import retrofit2.http.GET
 

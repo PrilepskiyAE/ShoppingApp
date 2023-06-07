@@ -1,7 +1,7 @@
 package com.prilepskiy.data.repository
 
-import com.prilepskiy.data.apiservice.DisheApiService
-import com.prilepskiy.data.response.dishesResponseModel.DishesResponse
+import com.prilepskiy.data.apiService.DisheApiService
+import com.prilepskiy.data.apiService.response.dishesResponseModel.DishesResponse
 
 import com.prilepskiy.data.utils.ActionResult
 import com.prilepskiy.data.utils.analyzeResponse

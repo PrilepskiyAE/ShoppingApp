@@ -1,8 +1,8 @@
 package com.prilepskiy.di
 
 
-import com.prilepskiy.data.apiservice.CategoryApiService
-import com.prilepskiy.data.apiservice.DisheApiService
+import com.prilepskiy.data.apiService.CategoryApiService
+import com.prilepskiy.data.apiService.DisheApiService
 import com.prilepskiy.data.repository.CategoryRepositoryImpl
 import com.prilepskiy.data.repository.DisheRepositoryImpl
 import com.prilepskiy.data.utils.HeaderInterceptor
@@ -10,7 +10,6 @@ import com.prilepskiy.domain.repository.CategoryRepository
 import com.prilepskiy.domain.repository.DisheRepository
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.koin.android.BuildConfig
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

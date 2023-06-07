@@ -1,4 +1,4 @@
-package com.prilepskiy.ui.viewmodel
+package com.prilepskiy.presenter.viewmodel
 
 import androidx.lifecycle.ViewModel
 

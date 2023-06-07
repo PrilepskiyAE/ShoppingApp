@@ -1,12 +1,8 @@
 package com.prilepskiy.sdk.ui.fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.prilepskiy.ui.viewmodel.HomeFragmentViewModel
-import com.prilepskiy.sdk.R
+import com.prilepskiy.presenter.viewmodel.HomeFragmentViewModel
 import com.prilepskiy.sdk.databinding.FragmentHomeBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
