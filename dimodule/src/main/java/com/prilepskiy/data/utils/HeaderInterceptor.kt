@@ -1,4 +1,4 @@
-package com.prilepskiy.sdk.data.utils
+package com.prilepskiy.data.utils
 import android.util.Log
 import okhttp3.Interceptor
 import okhttp3.Request

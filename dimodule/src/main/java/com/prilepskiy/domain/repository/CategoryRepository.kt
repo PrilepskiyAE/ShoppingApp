@@ -1,0 +1,11 @@
+package com.prilepskiy.domain.repository
+
+
+import com.prilepskiy.data.response.CategoryResponseModel.CategoriesResponse
+import com.prilepskiy.data.utils.ActionResult
+import kotlinx.coroutines.flow.Flow
+
+interface CategoryRepository {
+    suspend fun getCategoryNetwork(): ActionResult<CategoriesResponse>
+    suspend fun getCategoryCash(): Flow<CategoriesResponse>
+}
