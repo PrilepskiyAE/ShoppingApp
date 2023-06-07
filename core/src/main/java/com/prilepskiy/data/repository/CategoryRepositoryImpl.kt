@@ -1,8 +1,8 @@
 package com.prilepskiy.data.repository
 
-import com.prilepskiy.data.apiservice.CategoryApiService
+import com.prilepskiy.data.apiService.CategoryApiService
 
-import com.prilepskiy.data.response.CategoryResponseModel.CategoriesResponse
+import com.prilepskiy.data.apiService.response.CategoryResponseModel.CategoriesResponse
 import com.prilepskiy.data.utils.ActionResult
 import com.prilepskiy.data.utils.analyzeResponse
 import com.prilepskiy.data.utils.makeApiCall

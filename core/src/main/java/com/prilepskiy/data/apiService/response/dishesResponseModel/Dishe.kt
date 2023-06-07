@@ -1,4 +1,4 @@
-package com.prilepskiy.data.response.dishesResponseModel
+package com.prilepskiy.data.apiService.response.dishesResponseModel
 
 data class Dishe(
     val description: String,
