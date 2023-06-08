@@ -41,21 +41,7 @@ class DisheModel(
             )
         }
 
-//        fun from(data:List<DisheEntity>):List<DisheModel> {
-//            val temp:MutableList<DisheModel> = mutableListOf()
-//            data.forEach {
-//                temp.add(DisheModel.from(it))
-//            }
-//            return temp
-//        }
-//
-//        fun from(data:List<DisheResponse>):List<DisheModel> {
-//            val temp:MutableList<DisheModel> = mutableListOf()
-//            data.forEach {
-//                temp.add(DisheModel.from(it))
-//            }
-//            return temp
-//        }
+
     }
 
     }

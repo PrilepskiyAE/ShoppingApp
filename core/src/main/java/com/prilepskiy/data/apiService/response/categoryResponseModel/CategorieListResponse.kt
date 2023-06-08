@@ -1,5 +1,8 @@
 package com.prilepskiy.data.apiService.response.categoryResponseModel
 
+import com.google.gson.annotations.SerializedName
+
 data class CategorieListResponse(
-    val categories: List<CategoryResponse> = listOf()
+
+@SerializedName("сategories") val categories: List<CategoryResponse> = listOf()
 )

@@ -30,20 +30,7 @@ data class CategoryModel(
             )
         }
 
-//        fun from(data: List<CategoryEntity>):List<CategoryModel> {
-//            val temp:MutableList<CategoryModel> = mutableListOf()
-//            data.forEach {
-//                temp.add(CategoryModel.from(it))
-//            }
-//            return temp
-//        }
-//        fun from(data: List<CategoryResponse>):List<CategoryModel> {
-//            val temp:MutableList<CategoryModel> = mutableListOf()
-//            data.forEach {
-//                temp.add(CategoryModel.from(it))
-//            }
-//            return temp
-//        }
+
 
     }
 }
