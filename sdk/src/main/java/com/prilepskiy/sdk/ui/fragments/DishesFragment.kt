@@ -7,7 +7,7 @@ import androidx.navigation.fragment.findNavController
 import com.prilepskiy.sdk.databinding.FragmentDishesBinding
 
 
-private const val ARG_PARAM1 = "category Name"
+
 
 
 class DishesFragment : BaseFragment<FragmentDishesBinding>(FragmentDishesBinding::inflate) {
@@ -34,6 +34,7 @@ class DishesFragment : BaseFragment<FragmentDishesBinding>(FragmentDishesBinding
 
     companion object {
        const val TAG = "DishesFragment"
+        const val ARG_PARAM1 = "category Name"
         @JvmStatic
         fun newInstance(categoryName: String) =
             DishesFragment().apply {
