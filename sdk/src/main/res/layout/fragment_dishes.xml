@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.ShoppingBasketFragment">
+    tools:context=".ui.fragments.DishesFragment">
 
-    <com.prilepskiy.sdk.ui.customviews.ToolbarStandard
-        android:id="@+id/toolbarStandard"
+    <com.prilepskiy.sdk.ui.customviews.ToolbarNavigation
+        android:id="@+id/toolbarNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"

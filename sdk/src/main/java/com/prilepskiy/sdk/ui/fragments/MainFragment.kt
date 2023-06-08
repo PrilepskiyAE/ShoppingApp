@@ -9,19 +9,12 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.navigation.NavigationBarView.LABEL_VISIBILITY_LABELED
 import com.prilepskiy.sdk.R
+import com.prilepskiy.sdk.databinding.FragmentHomeBinding
 import com.prilepskiy.sdk.databinding.FragmentMainBinding
 
 
-class MainFragment : Fragment() {
-    lateinit var binding: FragmentMainBinding
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+class MainFragment  : BaseFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
 
-        binding = FragmentMainBinding.inflate(inflater)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -50,13 +43,7 @@ class MainFragment : Fragment() {
             true
         }
     }
-    private fun Fragment.openFragment(f:Fragment){
-        (activity as AppCompatActivity).supportFragmentManager
-            .beginTransaction()
-            .setCustomAnimations(android.R.anim.slide_in_left,android.R.anim.slide_out_right)
-            .replace(R.id.placeHolder, f)
-            .commit()
-    }
+
 
     companion object{
         const val TAG="MainFragment"
