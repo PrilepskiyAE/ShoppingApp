@@ -7,8 +7,10 @@ import androidx.lifecycle.lifecycleScope
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.prilepskiy.presenter.viewmodel.HomeFragmentViewModel
+import com.prilepskiy.sdk.R
 import com.prilepskiy.sdk.databinding.FragmentHomeBinding
 import com.prilepskiy.sdk.ui.adapter.CategoryAdapter
+import com.prilepskiy.sdk.ui.fragments.DishesFragment.Companion.ARG_PARAM1
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -18,8 +20,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     val viewModel: HomeFragmentViewModel by viewModel()
      val adapter:CategoryAdapter=CategoryAdapter{
          Log.d(TAG, "initAdapter: $it")
-        openFragment(DishesFragment.newInstance(it.name))
-         //popFragment()
+        //openFragment(DishesFragment.newInstance(it.name))
+
+         navigateFragment(R.id.dishesFragment,Bundle().apply {
+             putString(ARG_PARAM1, it.name)
+         })
      }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
