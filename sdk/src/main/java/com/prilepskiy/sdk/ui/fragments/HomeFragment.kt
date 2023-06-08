@@ -18,6 +18,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     val viewModel: HomeFragmentViewModel by viewModel()
      val adapter:CategoryAdapter=CategoryAdapter{
          Log.d(TAG, "initAdapter: $it")
+        openFragment(DishesFragment.newInstance(it.name))
+         //popFragment()
      }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,7 +43,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
     companion object {
-const val TAG="HomeFragment111"
+const val TAG="HomeFragment"
 
         @JvmStatic
         fun newInstance() = HomeFragment()

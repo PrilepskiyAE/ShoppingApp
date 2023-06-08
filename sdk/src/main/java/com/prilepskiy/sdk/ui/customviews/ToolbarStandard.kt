@@ -12,18 +12,10 @@ class ToolbarStandard@JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null, ): ConstraintLayout(context, attrs) {
     private lateinit var binding: ToolbarStandardBinding
-    private var customFirstItem: Drawable? = null
 
-    private var customSecondItem: Drawable? = null
-
-    private var backgroundColor: Int? = null
-
-    private var firstItemClick: () -> Unit = {}
-
-    private var secondItemClick: () -> Unit = {}
 
     init {
-        this.createToolbar()
+        createToolbar()
     }
 
     private fun createToolbar() {
