@@ -19,14 +19,13 @@ class CategoryAdapter(private val onClickButtonClicked: (category: CategoryModel
     class CategoryHolder(
         view: View,
         private val onClickButtonClicked: (category: CategoryModel) -> Unit
-    ) : RecyclerView.ViewHolder(view),
-        View.OnClickListener {
+    ) : RecyclerView.ViewHolder(view)
+    {
         private val binding = ItemCategoryNameBinding.bind(view)
-        private var tempCategoryModel: CategoryModel? = null
+
 
 
         fun bind(categoryModel: CategoryModel) = with(binding) {
-            tempCategoryModel = categoryModel
             // Log.d("TAG999", "bind: ${categoryModel.image_url}")
             Glide.with(itemView)
                 .load(categoryModel.image_url).into(binding.imLogo)
@@ -37,9 +36,6 @@ class CategoryAdapter(private val onClickButtonClicked: (category: CategoryModel
 
         }
 
-        override fun onClick(p0: View?) {
-
-        }
     }
 
     class Comporator : DiffUtil.ItemCallback<CategoryModel>() {
