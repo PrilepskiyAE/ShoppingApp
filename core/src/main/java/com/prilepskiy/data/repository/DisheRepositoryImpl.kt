@@ -22,15 +22,7 @@ class DisheRepositoryImpl(private val api: DisheApiService,private val db: Dishe
             is ActionResult.Success -> {
                 apiData.data.dishes.onEach {
                     db.disheDao.insert(
-                        DisheEntity(
-                            description = it.description,
-                            id = it.id,
-                            image_url = it.image_url,
-                            name = it.name,
-                            price = it.price,
-                            tegs = it.tegs,
-                            weight = it.weight
-                        )
+                        DisheEntity.from(it)
                     )
                 }
 
