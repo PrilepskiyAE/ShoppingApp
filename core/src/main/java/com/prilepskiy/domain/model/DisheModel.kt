@@ -3,7 +3,8 @@ package com.prilepskiy.domain.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
-
+import com.prilepskiy.data.apiService.response.dishesResponseModel.DisheResponse
+import com.prilepskiy.data.databaseService.entity.DisheEntity
 
 
 class DisheModel(
@@ -14,4 +15,48 @@ class DisheModel(
     val price: Int,
     val tegs: List<String>,
     val weight: Int
-    )
+) {
+    companion object {
+        fun from(data: DisheEntity): DisheModel = with(data) {
+            DisheModel(
+                id = id,
+                name = name,
+                description = description,
+                price = price,
+                tegs = tegs,
+                weight = weight,
+                image_url = image_url
+            )
+        }
+
+        fun from(data: DisheResponse): DisheModel = with(data) {
+            DisheModel(
+                id = id,
+                name = name,
+                description = description,
+                price = price,
+                tegs = tegs,
+                weight = weight,
+                image_url = image_url
+            )
+        }
+
+//        fun from(data:List<DisheEntity>):List<DisheModel> {
+//            val temp:MutableList<DisheModel> = mutableListOf()
+//            data.forEach {
+//                temp.add(DisheModel.from(it))
+//            }
+//            return temp
+//        }
+//
+//        fun from(data:List<DisheResponse>):List<DisheModel> {
+//            val temp:MutableList<DisheModel> = mutableListOf()
+//            data.forEach {
+//                temp.add(DisheModel.from(it))
+//            }
+//            return temp
+//        }
+    }
+
+    }
+

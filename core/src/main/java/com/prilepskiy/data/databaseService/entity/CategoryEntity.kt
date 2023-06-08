@@ -9,3 +9,6 @@ data class CategoryEntity(
     val id: Int=0,
     val image_url: String,
     val name: String)
+{
+    companion object {}
+}
