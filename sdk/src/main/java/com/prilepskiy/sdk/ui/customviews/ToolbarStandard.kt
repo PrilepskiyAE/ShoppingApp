@@ -23,6 +23,8 @@ class ToolbarStandard@JvmOverloads constructor(
         addView(binding.root)
     }
 
-
+    fun setTitleText(text: String) {
+        binding.tvTitle.text=text
+    }
 
 }

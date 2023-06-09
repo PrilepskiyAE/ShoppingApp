@@ -12,6 +12,5 @@ interface DisheRepository {
     suspend fun getDisheListCash(): Flow<List<DisheEntity>>
     suspend fun getDisheByName(disheName: String): Flow<List<DisheEntity>>
     suspend fun getDisheById(disheId: Int): Flow<List<DisheEntity>>
-
-    suspend fun getDisheByCategory(categoryName: String): Flow<List<DisheEntity>>
+    suspend fun getDisheByTags(tagName: String): Flow<List<DisheEntity>>
 }

@@ -5,5 +5,7 @@
             <item name="itemIconTint">@color/bottom_navigation_menu</item>
             <item name="itemTextColor">@color/bottom_navigation_menu_text</item>
             <item name="background">@color/grey</item>
+            <item name="backgroundColor">@color/grey</item>
+
         </style>
     </resources>

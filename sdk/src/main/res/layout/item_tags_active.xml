@@ -9,10 +9,11 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
         android:layout_width="94dp"
+        android:fontFamily="@font/sfprodisplay_regular"
         android:layout_height="35dp"
         android:textAllCaps="false"
-        android:fontFamily="@font/sfprodisplay_regular"
-        android:background="@color/grey_1"
+        android:textColor="@color/grey"
+        android:background="@color/blue"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
