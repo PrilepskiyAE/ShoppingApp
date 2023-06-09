@@ -18,6 +18,7 @@ import com.prilepskiy.presenter.viewmodel.HomeFragmentViewModel
 import com.prilepskiy.sdk.R
 import com.prilepskiy.sdk.databinding.FragmentHomeBinding
 import com.prilepskiy.sdk.ui.adapter.CategoryAdapter
+import com.prilepskiy.sdk.ui.dialog.DialogManager
 import com.prilepskiy.sdk.ui.fragments.DishesFragment.Companion.ARG_PARAM1
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

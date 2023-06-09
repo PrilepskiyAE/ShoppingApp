@@ -5,6 +5,7 @@ import android.app.Application
 import androidx.room.Room
 import com.prilepskiy.data.apiService.CategoryApiService
 import com.prilepskiy.data.apiService.DisheApiService
+import com.prilepskiy.data.databaseService.database.BasketDataBase
 import com.prilepskiy.data.databaseService.database.CategoryDataBase
 import com.prilepskiy.data.databaseService.database.DisheDataBase
 import com.prilepskiy.data.repository.CategoryRepositoryImpl
@@ -72,5 +73,19 @@ val databaseModule = module {
     }
     single { provideCategoryDataBase(androidApplication()) }
     single { get<CategoryDataBase>().categoryDao }
+
+    fun provideBasketDataBase(application: Application): BasketDataBase {
+        return Room.databaseBuilder(
+            application,
+            BasketDataBase::class.java,
+            "BasketDB"
+        ).allowMainThreadQueries()
+            .build()
+    }
+
+
+
+    single { provideBasketDataBase(androidApplication()) }
+    single { get<BasketDataBase>().basketDao }
 
 }
