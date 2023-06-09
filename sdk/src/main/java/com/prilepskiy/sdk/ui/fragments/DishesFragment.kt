@@ -11,6 +11,7 @@ import com.prilepskiy.sdk.databinding.FragmentDishesBinding
 import com.prilepskiy.sdk.ui.adapter.CategoryAdapter
 import com.prilepskiy.sdk.ui.adapter.DisheAdapter
 import com.prilepskiy.sdk.ui.adapter.TagAdapter
+import com.prilepskiy.sdk.ui.dialog.DialogManager
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -21,7 +22,9 @@ class DishesFragment : BaseFragment<FragmentDishesBinding>(FragmentDishesBinding
     private var categoryName: String? = null
 
     val disheadapter: DisheAdapter =DisheAdapter{
-
+        Log.d(TAG, "ttt: $it")
+        DialogManager.showShoppingBasketDialog(requireContext(),{},it)
+       // DialogManager.showLocEnabledDialog(requireContext())
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
