@@ -7,8 +7,6 @@ sealed class ActionResult<out S> {
     data class Error(val errors: Throwable) : ActionResult<Nothing>()
 }
 
-val ActionResult<*>.succeeded
-    get() = this is ActionResult.Success && data != null
 
 val <T> ActionResult<T>.data : T?
     get() = (this as? ActionResult.Success)?.data
