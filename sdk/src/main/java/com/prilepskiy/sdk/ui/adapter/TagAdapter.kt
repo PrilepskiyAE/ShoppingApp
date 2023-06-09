@@ -13,7 +13,7 @@ import com.prilepskiy.sdk.databinding.ItemTagsBinding
 import com.prilepskiy.domain.model.TagModel
 
 class TagAdapter(private val onClickButtonClicked: (tag: TagModel) -> Unit) :ListAdapter<TagModel, TagAdapter.TagHolder>(TagAdapter.Comporator()) {
-    //var t="ВСЕ МЕНЮ"
+
 
    inner class TagHolder(
         view: View,
@@ -21,18 +21,11 @@ class TagAdapter(private val onClickButtonClicked: (tag: TagModel) -> Unit) :Lis
     {
         private val binding = ItemTagsBinding.bind(view)
         fun bind(tag: TagModel)  {
-            Log.d("TAG9999", "bind:${tag.isActive} ")
-            with(binding){
-               // if (t==tag.name){button.setBackgroundColor(Color.BLUE)}
 
+            with(binding){
                 button.text=tag.name
                 button.setOnClickListener {
-                  //  if (t==tag.name){button.setBackgroundColor(Color.BLUE)}else button.setBackgroundColor(Color.WHITE)
-                   // t=tag.name
-
-
                     onClickButtonClicked(tag)
-
                 }
                 }
             }
@@ -57,9 +50,9 @@ class TagAdapter(private val onClickButtonClicked: (tag: TagModel) -> Unit) :Lis
 
         val view=  when(viewType){
             TAG_ACTIVE->LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_tags, parent, false)
-            TAG_PASSIVE->LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_tags_active, parent, false)
+            TAG_PASSIVE->LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_tags, parent, false)
 
             else -> {throw RuntimeException("Unknown view type: $viewType")}}
 

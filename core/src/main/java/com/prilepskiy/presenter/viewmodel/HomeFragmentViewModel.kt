@@ -19,8 +19,13 @@ class HomeFragmentViewModel(private val getCategoryNetworkUseCase: GetCategoryNe
             null
         )
     }
+    val _geolocation : MutableStateFlow<String?> by lazy {
+        MutableStateFlow(
+            null
+        )
+    }
     val categoryModel = _categoryModel.asStateFlow()
-
+    val geolocation=_geolocation.asStateFlow()
     fun getCategory(){
         viewModelScope.launch {
             when (val result = getCategoryNetworkUseCase()){
@@ -36,6 +41,13 @@ class HomeFragmentViewModel(private val getCategoryNetworkUseCase: GetCategoryNe
 
         }
     }
+
+    fun getGeoCity(name: String) {
+        viewModelScope.launch {
+        _geolocation.emit(name)
+    }
+    }
+
     companion object{
        const val TAG="HomeFragmentViewModel"
     }
