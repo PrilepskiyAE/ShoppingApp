@@ -36,5 +36,5 @@ class DisheRepositoryImpl(private val api: DisheApiService,private val db: Dishe
     override suspend fun getDisheListCash(): Flow<List<DisheEntity>> = db.disheDao.getDishe()
     override suspend fun getDisheByName(disheName: String): Flow<List<DisheEntity>> = db.disheDao.getDisheByName(disheName)
     override suspend fun getDisheById(disheId: Int): Flow<List<DisheEntity>> = db.disheDao.getDisheById(disheId)
-    override suspend fun getDisheByCategory(categoryName: String): Flow<List<DisheEntity>> = db.disheDao.getDisheByCategory(categoryName)
+    override suspend fun getDisheByTags(tagName: String): Flow<List<DisheEntity>> = db.disheDao.getDisheByTags(tagName)
 }

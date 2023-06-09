@@ -4,14 +4,16 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.prilepskiy.data.utils.ActionResult
+import com.prilepskiy.domain.interactors.GetCategoryCashUseCase
 import com.prilepskiy.domain.interactors.GetCategoryNetworkUseCase
 import com.prilepskiy.domain.model.CategoryModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collectLatest
 
 import kotlinx.coroutines.launch
 
-class HomeFragmentViewModel(private val getCategoryNetworkUseCase: GetCategoryNetworkUseCase):ViewModel() {
+class HomeFragmentViewModel(private val getCategoryNetworkUseCase: GetCategoryNetworkUseCase,private val getCategoryCashUseCase: GetCategoryCashUseCase):ViewModel() {
     private val _categoryModel: MutableStateFlow<List<CategoryModel>?> by lazy {
         MutableStateFlow(
             null
@@ -28,6 +30,7 @@ class HomeFragmentViewModel(private val getCategoryNetworkUseCase: GetCategoryNe
                 }
                 is ActionResult.Error ->{
                     Log.d(TAG, "getCategory: error ${result.errors}")
+
                 }
             }
 

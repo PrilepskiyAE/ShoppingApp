@@ -24,7 +24,12 @@ class DisheAdapter(private val onClickButtonClicked: (dishe: DisheModel) -> Unit
         fun bind(disheModel: DisheModel)  {
             with(binding){
                 Glide.with(itemView)
-                    .load(disheModel.image_url).into(binding.imgDishe)
+                    .load(
+                        if (disheModel.image_url.isNullOrEmpty())
+                            disheModel.description
+                            else
+                        disheModel.image_url
+                    ).into(binding.imgDishe)
                 tvName.text = disheModel.name
                 imgDishe.setOnClickListener {
                     onClickButtonClicked(disheModel)
