@@ -15,7 +15,7 @@ class BasketRepositoryImpl(private val db: BasketDataBase) : BasketRepository {
     }
 
     override suspend fun deleteBtCash(basket: BasketEntity) {
-        deleteBtCash(basket)
+        db.basketDao.delete(basket)
     }
 
 
