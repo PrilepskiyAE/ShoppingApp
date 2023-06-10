@@ -21,7 +21,7 @@
 
     <View
         android:layout_width="0dp"
-        android:layout_height="10dp"
+        android:layout_height="@dimen/size_10"
         android:background="@drawable/bottom_navigation_elevation_gradient"
         app:layout_constraintBottom_toTopOf="@+id/bottomNav"
         app:layout_constraintEnd_toEndOf="parent"

@@ -11,7 +11,7 @@ import org.koin.dsl.module
 val viewModelModule = module {
     viewModel { HomeFragmentViewModel(get(),get()) }
     viewModel { SearchFragmentViewModel() }
-    viewModel { ShoppingBasketFragmentViewModel(get(),get()) }
+    viewModel { ShoppingBasketFragmentViewModel(get(),get(),get()) }
     viewModel { ProfileFragmentViewModel() }
     viewModel { DishesFragmentViewModel(get(),get(),get(),get()) }
 

@@ -5,12 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent">
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/btDown"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginStart="@dimen/size_20"
+        android:layout_marginTop="@dimen/size_23"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icons_pop_bas" />
@@ -19,22 +19,22 @@
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
+        android:layout_marginStart="@dimen/size_9"
         android:fontFamily="@font/sfprodisplay_medium"
         android:gravity="top"
-        android:text="Азиатская Кухня"
-        android:textColor="#000000"
-        android:textSize="18sp"
+        tools:text="Азиатская Кухня"
+        android:textColor="@color/black"
+        android:textSize="@dimen/space_18"
         app:layout_constraintEnd_toStartOf="@+id/profile_image"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintStart_toEndOf="@+id/btDown"
+        app:layout_constraintTop_toTopOf="@+id/btDown" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
-        android:layout_width="44dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="@dimen/size_44"
+        android:layout_height="@dimen/size_44"
+        android:layout_marginTop="@dimen/size_16"
+        android:layout_marginEnd="@dimen/size_16"
         android:src="@mipmap/ic_avatar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

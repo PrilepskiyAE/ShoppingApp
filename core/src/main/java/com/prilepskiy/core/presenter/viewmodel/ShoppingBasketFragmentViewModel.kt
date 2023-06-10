@@ -2,6 +2,7 @@ package com.prilepskiy.core.presenter.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.prilepskiy.core.domain.interactors.GetAllSumUseCase
 import com.prilepskiy.core.domain.interactors.GetBasketCashUseCase
 import com.prilepskiy.core.domain.interactors.UpdateBasketCashUseCase
 import com.prilepskiy.core.domain.model.BasketModel
@@ -12,7 +13,8 @@ import kotlinx.coroutines.launch
 
 class ShoppingBasketFragmentViewModel(
     private val getBasketCashUseCase: GetBasketCashUseCase,
-    private val updateBasketCashUseCase: UpdateBasketCashUseCase
+    private val updateBasketCashUseCase: UpdateBasketCashUseCase,
+    private val getAllSumUseCase:GetAllSumUseCase
 ) : ViewModel() {
     private val _geolocation: MutableStateFlow<String?> by lazy {
         MutableStateFlow(
@@ -27,6 +29,10 @@ class ShoppingBasketFragmentViewModel(
     }
     val basketModel = _basketModel.asStateFlow()
 
+    private val _basketAllSumm: MutableStateFlow<Int?> = MutableStateFlow(0)
+    val basketAllSumm = _basketAllSumm.asStateFlow()
+
+
 
     val geolocation = _geolocation.asStateFlow()
     fun getGeoCity(name: String) {
@@ -39,6 +45,7 @@ class ShoppingBasketFragmentViewModel(
         viewModelScope.launch {
             getBasketCashUseCase().collectLatest {
                 _basketModel.emit(it)
+
             }
         }
     }
@@ -46,8 +53,11 @@ class ShoppingBasketFragmentViewModel(
     fun updateBasketCash(basketModel: BasketModel, isPositive: Boolean) {
         viewModelScope.launch {
             if (isPositive) {
+
                 updateBasketCashUseCase(basketModel.copy(colum = basketModel.colum+1))
+
             } else {
+
                 updateBasketCashUseCase(basketModel.copy(colum = basketModel.colum-1))
             }
 
@@ -56,6 +66,18 @@ class ShoppingBasketFragmentViewModel(
 
 
     }
+
+fun getAllSumm(){
+    viewModelScope.launch {
+        getAllSumUseCase.invoke().collect {
+
+            _basketAllSumm.emit(it)
+
+        }
+    }
+}
+
+
 
 
 }

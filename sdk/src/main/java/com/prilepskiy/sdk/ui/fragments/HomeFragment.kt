@@ -1,24 +1,16 @@
 package com.prilepskiy.sdk.ui.fragments
 
-import android.location.Location
-import android.location.LocationManager
-import android.os.Bundle
-import android.util.Log
-import android.view.View
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.viewModelScope
 
+import android.os.Bundle
+
+import android.view.View
+
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationCallback
-import com.google.android.gms.location.LocationResult
 import com.prilepskiy.core.presenter.viewmodel.HomeFragmentViewModel
 import com.prilepskiy.sdk.R
 import com.prilepskiy.sdk.databinding.FragmentHomeBinding
 import com.prilepskiy.sdk.ui.adapter.CategoryAdapter
-import com.prilepskiy.sdk.ui.dialog.DialogManager
 import com.prilepskiy.sdk.ui.fragments.DishesFragment.Companion.ARG_PARAM1
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -49,7 +41,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         initAdapter()
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.geolocation.collectLatest {
-                Log.d("TAG777", "initAdapter: $it")
+
                 if (it != null) {
                     binding.toolbarStandard.setTitleText(it)
                 }

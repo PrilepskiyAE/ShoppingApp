@@ -3,17 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="10dp"
-    android:layout_margin="4dp">
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="@dimen/size_10"
+    android:layout_margin="@dimen/size_4">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
-        android:layout_width="94dp"
-        android:layout_height="35dp"
+        android:layout_width="@dimen/size_94"
+        android:layout_height="@dimen/size_35"
         android:textAllCaps="false"
         android:fontFamily="@font/sfprodisplay_regular"
         android:background="@color/grey_1"
-        android:text="Button"
+        tools:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

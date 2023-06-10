@@ -15,15 +15,15 @@ import com.prilepskiy.sdk.databinding.ItemBasketBinding
 import com.prilepskiy.sdk.databinding.ItemDisheBinding
 
 class BasketAdapter(
-    private val onClickButtonPositive: (basket: com.prilepskiy.core.domain.model.BasketModel) -> Unit,
-    private val onClickButtonNigative: (basket: com.prilepskiy.core.domain.model.BasketModel) -> Unit
+    private val onClickButtonPositive: (basket: BasketModel) -> Unit,
+    private val onClickButtonNigative: (basket: BasketModel) -> Unit
 ) :
-    ListAdapter<com.prilepskiy.core.domain.model.BasketModel, BasketAdapter.BasketHolder>(Comporator()) {
-    class Comporator : DiffUtil.ItemCallback<com.prilepskiy.core.domain.model.BasketModel>() {
-        override fun areItemsTheSame(oldItem: com.prilepskiy.core.domain.model.BasketModel, newItem: com.prilepskiy.core.domain.model.BasketModel): Boolean =
+    ListAdapter<BasketModel, BasketAdapter.BasketHolder>(Comporator()) {
+    class Comporator : DiffUtil.ItemCallback<BasketModel>() {
+        override fun areItemsTheSame(oldItem: BasketModel, newItem: BasketModel): Boolean =
             oldItem.id == newItem.id
 
-        override fun areContentsTheSame(oldItem: com.prilepskiy.core.domain.model.BasketModel, newItem: com.prilepskiy.core.domain.model.BasketModel): Boolean {
+        override fun areContentsTheSame(oldItem: BasketModel, newItem: BasketModel): Boolean {
             return oldItem.equals(newItem)
         }
 
@@ -34,17 +34,20 @@ class BasketAdapter(
         view: View,
     ) : RecyclerView.ViewHolder(view) {
         private val binding = ItemBasketBinding.bind(view)
-        fun bind(basket: com.prilepskiy.core.domain.model.BasketModel) {
+        fun bind(basket: BasketModel) {
             with(binding) {
                 Glide.with(itemView)
                     .load(basket.image_url)
                     .into(imgDishe)
                 tvTitle.text = basket.name
-                tvPrice.text = basket.price.toString()
-                tvWeight.text = basket.weight.toString()
-                textView.text = basket.colum.toString()
-                binding.imageView2.setOnClickListener { onClickButtonNigative(basket) }
-                binding.imageView3.setOnClickListener { onClickButtonPositive(basket) }
+                val priceFormat=(basket.price*basket.colum).toString()+"₽"
+                tvPrice.text = priceFormat
+                val weightFormat=(basket.weight*basket.colum).toString()+"Г"
+                tvWeight.text = weightFormat
+                tvColum.text = basket.colum.toString()
+
+                btNigotive.setOnClickListener { onClickButtonNigative(basket) }
+                btPositive.setOnClickListener { onClickButtonPositive(basket) }
             }
 
 

@@ -25,4 +25,8 @@ class BasketRepositoryImpl(private val db: BasketDataBase) :
     override suspend fun searchBtCash(basket: BasketEntity): Flow<BasketEntity?> {
      return   db.basketDao.searhBasket(basket.id)
     }
+
+    override suspend fun getAllSumm(): Flow<Int?> {
+       return db.basketDao.sumBasket()
+    }
 }

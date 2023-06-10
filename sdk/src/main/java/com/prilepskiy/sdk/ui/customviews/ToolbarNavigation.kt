@@ -27,7 +27,7 @@ class ToolbarNavigation @JvmOverloads constructor(
     }
 
     fun onClick(onClickButtonClicked: () -> Unit){
-        binding.imageView.setOnClickListener {  onClickButtonClicked()}
+        binding.btDown.setOnClickListener {  onClickButtonClicked()}
     }
 
 }

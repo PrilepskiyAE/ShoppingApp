@@ -2,4 +2,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="shopping_basket_label">Добавить в корзину</string>
+    <string name="geolocation_empty">Определяю место</string>
+    <string name="hello_blank_fragment2">hello_blank_fragment2</string>
+    <string name="hello_blank_fragment4">hello_blank_fragment4</string>
 </resources>
