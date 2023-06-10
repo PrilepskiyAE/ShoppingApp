@@ -21,16 +21,18 @@ data class BasketModel(
                 colum=colum
             )
         }
+
+        fun from(data: DisheModel): BasketModel = with(data) {
+            BasketModel(
+                id = id,
+                name = name,
+                price = price,
+                weight = weight,
+                image_url = image_url,
+
+                )
+        }
     }
-    fun from(data: DisheModel,colum: Int): BasketModel = with(data) {
-        BasketModel(
-            id = id,
-            name = name,
-            price = price,
-            weight = weight,
-            image_url = image_url,
-            colum=colum
-        )
-    }
+
 }
 

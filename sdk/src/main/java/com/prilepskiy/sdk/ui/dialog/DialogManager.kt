@@ -33,6 +33,7 @@ object DialogManager {
             tvWeight.text=formatWeight
             tvDescription.text=disheModel.description
             binding.btAdd.setOnClickListener {
+                onClickButtonClicked()
                 dialog.dismiss()
             }
             binding.btCloce.setOnClickListener {

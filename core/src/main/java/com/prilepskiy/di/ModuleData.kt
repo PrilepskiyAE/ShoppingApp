@@ -8,9 +8,11 @@ import com.prilepskiy.data.apiService.DisheApiService
 import com.prilepskiy.data.databaseService.database.BasketDataBase
 import com.prilepskiy.data.databaseService.database.CategoryDataBase
 import com.prilepskiy.data.databaseService.database.DisheDataBase
+import com.prilepskiy.data.repository.BasketRepositoryImpl
 import com.prilepskiy.data.repository.CategoryRepositoryImpl
 import com.prilepskiy.data.repository.DisheRepositoryImpl
 import com.prilepskiy.data.utils.HeaderInterceptor
+import com.prilepskiy.domain.repository.BasketRepository
 import com.prilepskiy.domain.repository.CategoryRepository
 import com.prilepskiy.domain.repository.DisheRepository
 import okhttp3.OkHttpClient
@@ -49,6 +51,7 @@ val apiModule = module {
 val repositoryModule = module {
     single<CategoryRepository> { CategoryRepositoryImpl(get(), get()) }
     single<DisheRepository> { DisheRepositoryImpl(get(), get()) }
+    single<BasketRepository> { BasketRepositoryImpl(get()) }
 }
 
 val databaseModule = module {

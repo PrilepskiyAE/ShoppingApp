@@ -13,6 +13,6 @@ val viewModelModule = module {
     viewModel { SearchFragmentViewModel() }
     viewModel { ShoppingBasketFragmentViewModel() }
     viewModel { ProfileFragmentViewModel() }
-    viewModel { DishesFragmentViewModel(get(),get()) }
+    viewModel { DishesFragmentViewModel(get(),get(),get(),get()) }
 
     }
