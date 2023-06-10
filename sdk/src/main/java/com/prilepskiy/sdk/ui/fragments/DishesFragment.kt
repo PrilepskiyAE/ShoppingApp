@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.lifecycleScope
-import com.prilepskiy.presenter.viewmodel.DishesFragmentViewModel
+import com.prilepskiy.core.presenter.viewmodel.DishesFragmentViewModel
 import com.prilepskiy.sdk.databinding.FragmentDishesBinding
 import com.prilepskiy.sdk.ui.adapter.DisheAdapter
 import com.prilepskiy.sdk.ui.adapter.TagAdapter
@@ -17,9 +17,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class DishesFragment : BaseFragment<FragmentDishesBinding>(FragmentDishesBinding::inflate) {
     val viewModel: DishesFragmentViewModel by viewModel()
     private var categoryName: String? = null
-
     val disheadapter: DisheAdapter =DisheAdapter{
-       // Log.d(TAG, "ttt: $it")
         DialogManager.showShoppingBasketDialog(requireContext(),{
             viewModel.addBasketCash(it)},it)
 
@@ -39,7 +37,6 @@ class DishesFragment : BaseFragment<FragmentDishesBinding>(FragmentDishesBinding
         viewModel.getTags()
         viewModel.getDisheByTag()
         binding.toolbarNavigation.onClick {
-            Log.d(TAG, "onViewCreated: ")
             popBackStack()
         }
         val tagAdapter = TagAdapter {
@@ -60,7 +57,6 @@ class DishesFragment : BaseFragment<FragmentDishesBinding>(FragmentDishesBinding
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.tagsModel.collectLatest {
-                Log.d(TAG, "onViewCreated: ${it?.size}")
                 tagAdapter.submitList(it)
             }
         }
@@ -72,12 +68,6 @@ class DishesFragment : BaseFragment<FragmentDishesBinding>(FragmentDishesBinding
     companion object {
        const val TAG = "DishesFragment"
         const val ARG_PARAM1 = "category Name"
-        @JvmStatic
-        fun newInstance(categoryName: String) =
-            DishesFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, categoryName)
-                }
-            }
+//
     }
 }

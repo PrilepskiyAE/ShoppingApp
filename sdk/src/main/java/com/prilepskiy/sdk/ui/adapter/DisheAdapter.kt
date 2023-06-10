@@ -9,19 +9,19 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-import com.prilepskiy.domain.model.DisheModel
+import com.prilepskiy.core.domain.model.DisheModel
 import com.prilepskiy.sdk.R
 import com.prilepskiy.sdk.databinding.ItemDisheBinding
 
 
-class DisheAdapter(private val onClickButtonClicked: (dishe: DisheModel) -> Unit,) : ListAdapter<DisheModel, DisheAdapter.DisheHolder>(DisheAdapter.Comporator()){
+class DisheAdapter(private val onClickButtonClicked: (dishe: com.prilepskiy.core.domain.model.DisheModel) -> Unit,) : ListAdapter<com.prilepskiy.core.domain.model.DisheModel, DisheAdapter.DisheHolder>(DisheAdapter.Comporator()){
     class DisheHolder(
         view: View,
-        private val onClickButtonClicked: (dishe: DisheModel) -> Unit,
+        private val onClickButtonClicked: (dishe: com.prilepskiy.core.domain.model.DisheModel) -> Unit,
 
-    ) : RecyclerView.ViewHolder(view)
+        ) : RecyclerView.ViewHolder(view)
     { private val binding = ItemDisheBinding.bind(view)
-        fun bind(disheModel: DisheModel)  {
+        fun bind(disheModel: com.prilepskiy.core.domain.model.DisheModel)  {
             with(binding){
                 Glide.with(itemView)
                     .load(
@@ -39,10 +39,10 @@ class DisheAdapter(private val onClickButtonClicked: (dishe: DisheModel) -> Unit
 
         }
 
-    class Comporator : DiffUtil.ItemCallback<DisheModel>() {
-        override fun areItemsTheSame(oldItem: DisheModel, newItem: DisheModel): Boolean =oldItem.id==newItem.id
+    class Comporator : DiffUtil.ItemCallback<com.prilepskiy.core.domain.model.DisheModel>() {
+        override fun areItemsTheSame(oldItem: com.prilepskiy.core.domain.model.DisheModel, newItem: com.prilepskiy.core.domain.model.DisheModel): Boolean =oldItem.id==newItem.id
 
-        override fun areContentsTheSame(oldItem: DisheModel, newItem: DisheModel): Boolean {
+        override fun areContentsTheSame(oldItem: com.prilepskiy.core.domain.model.DisheModel, newItem: com.prilepskiy.core.domain.model.DisheModel): Boolean {
             return oldItem.equals(newItem)
         }
 

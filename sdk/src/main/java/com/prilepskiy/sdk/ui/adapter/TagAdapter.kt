@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.prilepskiy.sdk.R
 import com.prilepskiy.sdk.databinding.ItemTagsBinding
-import com.prilepskiy.domain.model.TagModel
+import com.prilepskiy.core.domain.model.TagModel
 
-class TagAdapter(private val onClickButtonClicked: (tag: TagModel) -> Unit) :ListAdapter<TagModel, TagAdapter.TagHolder>(TagAdapter.Comporator()) {
+class TagAdapter(private val onClickButtonClicked: (tag: com.prilepskiy.core.domain.model.TagModel) -> Unit) :ListAdapter<com.prilepskiy.core.domain.model.TagModel, TagAdapter.TagHolder>(TagAdapter.Comporator()) {
 
 
    inner class TagHolder(
@@ -20,7 +20,7 @@ class TagAdapter(private val onClickButtonClicked: (tag: TagModel) -> Unit) :Lis
         ) : RecyclerView.ViewHolder(view)
     {
         private val binding = ItemTagsBinding.bind(view)
-        fun bind(tag: TagModel)  {
+        fun bind(tag: com.prilepskiy.core.domain.model.TagModel)  {
 
             with(binding){
                 button.text=tag.name
@@ -35,12 +35,12 @@ class TagAdapter(private val onClickButtonClicked: (tag: TagModel) -> Unit) :Lis
 
 
 
-    class Comporator : DiffUtil.ItemCallback<TagModel>(){
-        override fun areItemsTheSame(oldItem: TagModel, newItem: TagModel): Boolean {
+    class Comporator : DiffUtil.ItemCallback<com.prilepskiy.core.domain.model.TagModel>(){
+        override fun areItemsTheSame(oldItem: com.prilepskiy.core.domain.model.TagModel, newItem: com.prilepskiy.core.domain.model.TagModel): Boolean {
             return oldItem.name==newItem.name
         }
 
-        override fun areContentsTheSame(oldItem: TagModel, newItem: TagModel): Boolean {
+        override fun areContentsTheSame(oldItem: com.prilepskiy.core.domain.model.TagModel, newItem: com.prilepskiy.core.domain.model.TagModel): Boolean {
             return oldItem==newItem
         }
 

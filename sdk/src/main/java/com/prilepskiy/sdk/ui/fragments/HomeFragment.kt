@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationResult
-import com.prilepskiy.presenter.viewmodel.HomeFragmentViewModel
+import com.prilepskiy.core.presenter.viewmodel.HomeFragmentViewModel
 import com.prilepskiy.sdk.R
 import com.prilepskiy.sdk.databinding.FragmentHomeBinding
 import com.prilepskiy.sdk.ui.adapter.CategoryAdapter
@@ -29,8 +29,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     val viewModel: HomeFragmentViewModel by viewModel()
     val adapter:CategoryAdapter=CategoryAdapter{
-        Log.d(TAG, "initAdapter: $it")
-        //openFragment(DishesFragment.newInstance(it.name))
+
+
 
         navigateFragment(R.id.dishesFragment,Bundle().apply {
             putString(ARG_PARAM1, it.name)
@@ -75,8 +75,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     companion object {
         const val TAG="HomeFragment"
 
-        @JvmStatic
-        fun newInstance() = HomeFragment()
 
     }
 }

@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.lifecycleScope
-import com.prilepskiy.presenter.viewmodel.ShoppingBasketFragmentViewModel
+import com.prilepskiy.core.presenter.viewmodel.ShoppingBasketFragmentViewModel
 import com.prilepskiy.sdk.databinding.FragmentShoppingBasketBinding
 import com.prilepskiy.sdk.ui.adapter.BasketAdapter
 import kotlinx.coroutines.flow.collectLatest
@@ -38,7 +38,6 @@ class ShoppingBasketFragment :
         }
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.basketModel.collectLatest {
-                Log.d("TAG77777", "onViewCreated: $it")
                 basketAdapter.submitList(it)
             }
         }
