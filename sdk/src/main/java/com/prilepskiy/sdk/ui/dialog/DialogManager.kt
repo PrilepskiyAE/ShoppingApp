@@ -2,6 +2,8 @@ package com.prilepskiy.sdk.ui.dialog
 
 import android.app.AlertDialog
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.util.Log
 import android.view.LayoutInflater
 import com.bumptech.glide.Glide
@@ -37,7 +39,7 @@ object DialogManager {
             }
 
         }
-
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.show()
     }
 
