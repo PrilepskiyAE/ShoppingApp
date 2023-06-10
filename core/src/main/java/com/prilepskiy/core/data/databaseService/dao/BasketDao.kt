@@ -12,4 +12,7 @@ abstract class BasketDao: BaseDao<BasketEntity>() {
 
     @Query("SELECT * FROM basket_table WHERE :id=id")
     abstract fun searhBasket(id:Int): Flow<BasketEntity?>
+
+    @Query("SELECT SUM(price * colum) FROM basket_table")
+    abstract fun sumBasket():Flow<Int?>
 }

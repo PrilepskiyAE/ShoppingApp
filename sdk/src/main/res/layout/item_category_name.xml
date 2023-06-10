@@ -6,17 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
-    android:layout_marginStart="16dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginEnd="16dp"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="8dp"
-    app:cardMaxElevation="8dp"
+    android:layout_marginStart="@dimen/size_16"
+    android:layout_marginTop="@dimen/size_8"
+    android:layout_marginEnd="@dimen/size_16"
+    app:cardCornerRadius="@dimen/size_10"
+    app:cardElevation="@dimen/size_8"
+    app:cardMaxElevation="@dimen/size_8"
     app:cardPreventCornerOverlap="false">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="148dp">
+        android:layout_height="@dimen/size_148">
 
         <ImageView
             android:id="@+id/imLogo"
@@ -32,11 +32,11 @@
             android:id="@+id/tvName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginStart="@dimen/size_16"
+            android:layout_marginTop="@dimen/size_12"
             android:fontFamily="@font/sfprodisplay_medium"
             android:textColor="@color/design_default_color_on_secondary"
-            android:textSize="20sp"
+            android:textSize="@dimen/space_20"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

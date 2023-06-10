@@ -1,5 +1,6 @@
 package com.prilepskiy.core.di
 
+import com.prilepskiy.core.domain.interactors.GetAllSumUseCase
 import com.prilepskiy.core.domain.interactors.GetBasketCashUseCase
 import com.prilepskiy.core.domain.interactors.GetCategoryCashUseCase
 import com.prilepskiy.core.domain.interactors.GetCategoryNetworkUseCase
@@ -12,6 +13,7 @@ import com.prilepskiy.core.domain.interactors.GetDisheListNetworkUseCase
 import com.prilepskiy.core.domain.interactors.GetTagsUseCase
 import com.prilepskiy.core.domain.interactors.SearchBtCashUseCase
 import com.prilepskiy.core.domain.interactors.UpdateBasketCashUseCase
+import com.prilepskiy.core.domain.usecase.GetAllSumUseCaseImpl
 import com.prilepskiy.core.domain.usecase.GetBasketCashUseCaseImpl
 import com.prilepskiy.core.domain.usecase.GetCategoryCashUseCaseImpl
 import com.prilepskiy.core.domain.usecase.GetCategoryNetworkUseCaseImpl
@@ -38,4 +40,6 @@ val useCaseModule = module {
     factory<GetBasketCashUseCase> { GetBasketCashUseCaseImpl(get()) }
     factory<UpdateBasketCashUseCase> { UpdateBasketCashUseCaseImpl(get()) }
     factory<SearchBtCashUseCase> { SearchBtCashUseCaseImpl(get()) }
+    factory<GetAllSumUseCase> { GetAllSumUseCaseImpl(get()) }
+
 }
