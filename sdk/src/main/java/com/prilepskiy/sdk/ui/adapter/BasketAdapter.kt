@@ -7,23 +7,23 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.prilepskiy.domain.model.BasketModel
-import com.prilepskiy.domain.model.CategoryModel
-import com.prilepskiy.domain.model.DisheModel
+import com.prilepskiy.core.domain.model.BasketModel
+import com.prilepskiy.core.domain.model.CategoryModel
+import com.prilepskiy.core.domain.model.DisheModel
 import com.prilepskiy.sdk.R
 import com.prilepskiy.sdk.databinding.ItemBasketBinding
 import com.prilepskiy.sdk.databinding.ItemDisheBinding
 
 class BasketAdapter(
-    private val onClickButtonPositive: (basket: BasketModel) -> Unit,
-    private val onClickButtonNigative: (basket: BasketModel) -> Unit
+    private val onClickButtonPositive: (basket: com.prilepskiy.core.domain.model.BasketModel) -> Unit,
+    private val onClickButtonNigative: (basket: com.prilepskiy.core.domain.model.BasketModel) -> Unit
 ) :
-    ListAdapter<BasketModel, BasketAdapter.BasketHolder>(Comporator()) {
-    class Comporator : DiffUtil.ItemCallback<BasketModel>() {
-        override fun areItemsTheSame(oldItem: BasketModel, newItem: BasketModel): Boolean =
+    ListAdapter<com.prilepskiy.core.domain.model.BasketModel, BasketAdapter.BasketHolder>(Comporator()) {
+    class Comporator : DiffUtil.ItemCallback<com.prilepskiy.core.domain.model.BasketModel>() {
+        override fun areItemsTheSame(oldItem: com.prilepskiy.core.domain.model.BasketModel, newItem: com.prilepskiy.core.domain.model.BasketModel): Boolean =
             oldItem.id == newItem.id
 
-        override fun areContentsTheSame(oldItem: BasketModel, newItem: BasketModel): Boolean {
+        override fun areContentsTheSame(oldItem: com.prilepskiy.core.domain.model.BasketModel, newItem: com.prilepskiy.core.domain.model.BasketModel): Boolean {
             return oldItem.equals(newItem)
         }
 
@@ -34,7 +34,7 @@ class BasketAdapter(
         view: View,
     ) : RecyclerView.ViewHolder(view) {
         private val binding = ItemBasketBinding.bind(view)
-        fun bind(basket: BasketModel) {
+        fun bind(basket: com.prilepskiy.core.domain.model.BasketModel) {
             with(binding) {
                 Glide.with(itemView)
                     .load(basket.image_url)

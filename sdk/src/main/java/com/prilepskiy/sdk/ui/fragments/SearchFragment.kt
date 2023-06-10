@@ -9,8 +9,7 @@ import com.prilepskiy.sdk.R
 import com.prilepskiy.sdk.databinding.FragmentProfileBinding
 import com.prilepskiy.sdk.databinding.FragmentSearchBinding
 
-class SearchFragment  : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding::inflate)  {
-
+class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding::inflate) {
 
 
     companion object {
