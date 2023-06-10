@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface BasketRepository {
     suspend fun getBasketCash(): Flow<List<BasketEntity>>
-
-    suspend fun updateBtCash(basket:BasketEntity,isPositive:Boolean)
+    suspend fun deleteBtCash(basket:BasketEntity)
+    suspend fun updateBtCash(basket:BasketEntity)
+    suspend fun searchBtCash(basket:BasketEntity):Flow<BasketEntity?>
 }

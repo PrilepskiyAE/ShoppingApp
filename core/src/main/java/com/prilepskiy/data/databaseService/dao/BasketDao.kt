@@ -10,4 +10,7 @@ import kotlinx.coroutines.flow.Flow
 abstract class BasketDao: BaseDao<BasketEntity>() {
     @Query("SELECT * FROM basket_table")
     abstract fun getBasket(): Flow<List<BasketEntity>>
+
+    @Query("SELECT * FROM basket_table WHERE :id=id")
+    abstract fun searhBasket(id:Int): Flow<BasketEntity?>
 }

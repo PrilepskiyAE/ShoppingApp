@@ -4,11 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import com.prilepskiy.presenter.viewmodel.DishesFragmentViewModel
-import com.prilepskiy.presenter.viewmodel.HomeFragmentViewModel
 import com.prilepskiy.sdk.databinding.FragmentDishesBinding
-import com.prilepskiy.sdk.ui.adapter.CategoryAdapter
 import com.prilepskiy.sdk.ui.adapter.DisheAdapter
 import com.prilepskiy.sdk.ui.adapter.TagAdapter
 import com.prilepskiy.sdk.ui.dialog.DialogManager
@@ -22,9 +19,10 @@ class DishesFragment : BaseFragment<FragmentDishesBinding>(FragmentDishesBinding
     private var categoryName: String? = null
 
     val disheadapter: DisheAdapter =DisheAdapter{
-        Log.d(TAG, "ttt: $it")
-        DialogManager.showShoppingBasketDialog(requireContext(),{},it)
-       // DialogManager.showLocEnabledDialog(requireContext())
+       // Log.d(TAG, "ttt: $it")
+        DialogManager.showShoppingBasketDialog(requireContext(),{
+            viewModel.addBasketCash(it)},it)
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +45,7 @@ class DishesFragment : BaseFragment<FragmentDishesBinding>(FragmentDishesBinding
         val tagAdapter = TagAdapter {
             Log.d(TAG, "${it.name}: ")
             viewModel.getDisheByTag(it)
-            viewModel.tagsModel.value?.let { it1 -> viewModel.activ(it.copy(isActive = true), it1) }
+            viewModel.tagsModel.value?.let { it1 -> viewModel.activatioTeg(it.copy(isActive = true), it1) }
 
 
         }
@@ -66,6 +64,9 @@ class DishesFragment : BaseFragment<FragmentDishesBinding>(FragmentDishesBinding
                 tagAdapter.submitList(it)
             }
         }
+
+
+
     }
 
     companion object {
