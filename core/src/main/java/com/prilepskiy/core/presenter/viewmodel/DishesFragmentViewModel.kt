@@ -118,13 +118,13 @@ class DishesFragmentViewModel(
 
     }
 
-    fun activatioTeg(item: com.prilepskiy.core.domain.model.TagModel, tagsList: List<com.prilepskiy.core.domain.model.TagModel>) {
+    fun activatioTeg(item: TagModel, tagsList: List<TagModel>) {
         viewModelScope.launch {
             //_tagsModel.emit(null)
             tagsList.forEach {
 
             }
-            var stationItems = mutableListOf<com.prilepskiy.core.domain.model.TagModel>()
+            var stationItems = mutableListOf<TagModel>()
             tagsList.forEach {
                 stationItems.add(it.copy(isActive = false))
             }

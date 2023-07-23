@@ -2,13 +2,13 @@ package com.prilepskiy.core.domain.model
 
 data class TagModel(val name:String,val isActive:Boolean){
     companion object{
-        fun from(list: List<String>):List<com.prilepskiy.core.domain.model.TagModel>{
-            val result: MutableList<com.prilepskiy.core.domain.model.TagModel> = mutableListOf()
+        fun from(list: List<String>):List<TagModel>{
+            val result: MutableList<TagModel> = mutableListOf()
             list.forEach {
                 if (it=="Все меню")
-                    result.add(com.prilepskiy.core.domain.model.TagModel(it, true))
+                    result.add(TagModel(it, true))
                 else
-                    result.add(com.prilepskiy.core.domain.model.TagModel(it, false))
+                    result.add(TagModel(it, false))
 
             }
             return result

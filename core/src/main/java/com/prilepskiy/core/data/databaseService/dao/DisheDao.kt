@@ -20,4 +20,7 @@ abstract class DisheDao: BaseDao<DisheEntity>() {
     //todo
     @Query("SELECT * FROM dishe_table WHERE tegs LIKE '%' || :tag || '%'")
     abstract fun getDisheByTags(tag:String): Flow<List<DisheEntity>>
+
+    @Query("SELECT * FROM dishe_table WHERE name LIKE '%' || :query || '%'")
+    abstract fun searchDisheByName(query:String): Flow<List<DisheEntity>>
 }

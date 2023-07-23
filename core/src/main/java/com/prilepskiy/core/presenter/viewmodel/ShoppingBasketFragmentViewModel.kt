@@ -9,6 +9,7 @@ import com.prilepskiy.core.domain.model.BasketModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.job
 import kotlinx.coroutines.launch
 
 class ShoppingBasketFragmentViewModel(
@@ -46,6 +47,7 @@ class ShoppingBasketFragmentViewModel(
             getBasketCashUseCase().collectLatest {
                 _basketModel.emit(it)
 
+
             }
         }
     }
@@ -67,6 +69,9 @@ class ShoppingBasketFragmentViewModel(
 
     }
 
+
+
+
 fun getAllSumm(){
     viewModelScope.launch {
         getAllSumUseCase.invoke().collect {
@@ -75,9 +80,16 @@ fun getAllSumm(){
 
         }
     }
+
+
 }
 
-
+    override fun onCleared() {
+        super.onCleared()
+        viewModelScope.launch {
+        updateBasketCashUseCase(basketModel.value?.get(0) !! )
+        }
+    }
 
 
 }
