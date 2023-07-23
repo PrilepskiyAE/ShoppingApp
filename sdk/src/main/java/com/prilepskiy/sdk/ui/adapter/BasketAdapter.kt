@@ -15,8 +15,8 @@ import com.prilepskiy.sdk.databinding.ItemBasketBinding
 import com.prilepskiy.sdk.databinding.ItemDisheBinding
 
 class BasketAdapter(
-    private val onClickButtonPositive: (basket: BasketModel,count:Int) -> Unit,
-    private val onClickButtonNigative: (basket: BasketModel,count:Int) -> Unit
+    private val onClickButtonPositive: (basket: BasketModel) -> Unit,
+    private val onClickButtonNigative: (basket: BasketModel) -> Unit
 ) :
     ListAdapter<BasketModel, BasketAdapter.BasketHolder>(Comporator()) {
     class Comporator : DiffUtil.ItemCallback<BasketModel>() {
@@ -38,25 +38,22 @@ class BasketAdapter(
         fun bind(basket: BasketModel) {
             with(binding) {
 
-               var count= basket.colum
                 Glide.with(itemView)
                     .load(basket.image_url)
                     .into(imgDishe)
                 tvTitle.text = basket.name
-                val priceFormat=(basket.price).toString()+"₽"
+                val priceFormat=basket.price.toString()+"₽"
                 tvPrice.text = priceFormat
-                val weightFormat=(basket.weight).toString()+"Г"
+                val weightFormat=basket.weight.toString()+"Г"
                 tvWeight.text = weightFormat
                 tvColum.text = basket.colum.toString()
 
                 btNigotive.setOnClickListener {
-                   // onClickButtonNigative(basket)
-                    tvColum.text = (--count).toString()
+                    onClickButtonNigative(basket)
 
                 }
                 btPositive.setOnClickListener {
-                    //onClickButtonPositive(basket)
-                    tvColum.text = (++count).toString()
+                    onClickButtonPositive(basket)
 
                 }
             }

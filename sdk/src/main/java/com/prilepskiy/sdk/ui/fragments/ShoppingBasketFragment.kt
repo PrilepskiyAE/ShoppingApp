@@ -21,11 +21,11 @@ class ShoppingBasketFragment :
     val viewModel: ShoppingBasketFragmentViewModel by viewModel()
 
     private val basketAdapter = BasketAdapter({
-        basket, count->
+        basket ->
         viewModel.updateBasketCash(basket, true)
         viewModel.getAllSumm()
     }, {
-            basket, count->
+            basket ->
         viewModel.updateBasketCash(basket, false)
     })
 
@@ -65,10 +65,5 @@ class ShoppingBasketFragment :
         }
     }
 
-    companion object {
 
-        @JvmStatic
-        fun newInstance() =
-            ShoppingBasketFragment()
-    }
 }
