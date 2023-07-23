@@ -5,4 +5,8 @@
     <string name="geolocation_empty">Определяю место</string>
     <string name="hello_blank_fragment2">hello_blank_fragment2</string>
     <string name="hello_blank_fragment4">hello_blank_fragment4</string>
+    <string name="input_query">Введите запрос</string>
+    <string name="exit">Выход</string>
+    <string name="clear_history">Очистить историю</string>
+    <string name="clear_favorite">Очистить избранное</string>
 </resources>

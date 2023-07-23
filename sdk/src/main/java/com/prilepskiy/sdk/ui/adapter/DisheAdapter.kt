@@ -1,6 +1,7 @@
 package com.prilepskiy.sdk.ui.adapter
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,14 +15,14 @@ import com.prilepskiy.sdk.R
 import com.prilepskiy.sdk.databinding.ItemDisheBinding
 
 
-class DisheAdapter(private val onClickButtonClicked: (dishe: com.prilepskiy.core.domain.model.DisheModel) -> Unit,) : ListAdapter<com.prilepskiy.core.domain.model.DisheModel, DisheAdapter.DisheHolder>(DisheAdapter.Comporator()){
+class DisheAdapter(private val onClickButtonClicked: (dishe: DisheModel) -> Unit,) : ListAdapter<DisheModel, DisheAdapter.DisheHolder>(DisheAdapter.Comporator()){
     class DisheHolder(
         view: View,
-        private val onClickButtonClicked: (dishe: com.prilepskiy.core.domain.model.DisheModel) -> Unit,
+        private val onClickButtonClicked: (dishe: DisheModel) -> Unit,
 
         ) : RecyclerView.ViewHolder(view)
     { private val binding = ItemDisheBinding.bind(view)
-        fun bind(disheModel: com.prilepskiy.core.domain.model.DisheModel)  {
+        fun bind(disheModel: DisheModel)  {
             with(binding){
                 Glide.with(itemView)
                     .load(
@@ -39,10 +40,10 @@ class DisheAdapter(private val onClickButtonClicked: (dishe: com.prilepskiy.core
 
         }
 
-    class Comporator : DiffUtil.ItemCallback<com.prilepskiy.core.domain.model.DisheModel>() {
-        override fun areItemsTheSame(oldItem: com.prilepskiy.core.domain.model.DisheModel, newItem: com.prilepskiy.core.domain.model.DisheModel): Boolean =oldItem.id==newItem.id
+    class Comporator : DiffUtil.ItemCallback<DisheModel>() {
+        override fun areItemsTheSame(oldItem: DisheModel, newItem: DisheModel): Boolean =oldItem.id==newItem.id
 
-        override fun areContentsTheSame(oldItem: com.prilepskiy.core.domain.model.DisheModel, newItem: com.prilepskiy.core.domain.model.DisheModel): Boolean {
+        override fun areContentsTheSame(oldItem: DisheModel, newItem: DisheModel): Boolean {
             return oldItem.equals(newItem)
         }
 
@@ -56,6 +57,7 @@ class DisheAdapter(private val onClickButtonClicked: (dishe: com.prilepskiy.core
     }
 
     override fun onBindViewHolder(holder: DisheHolder, position: Int) {
+        Log.d("TAG99", "onBindViewHolder ${getItem(position).name} ")
         holder.bind(getItem(position))
     }
 

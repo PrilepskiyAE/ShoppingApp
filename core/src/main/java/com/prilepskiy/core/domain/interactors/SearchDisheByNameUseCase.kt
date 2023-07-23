@@ -4,6 +4,6 @@ import com.prilepskiy.core.domain.model.BasketModel
 import com.prilepskiy.core.domain.model.DisheModel
 import kotlinx.coroutines.flow.Flow
 
-interface UpdateBasketCashUseCase {
-    suspend operator fun invoke(basketModel: BasketModel)
+interface SearchDisheByNameUseCase {
+    suspend operator fun invoke(query:String): Flow<List<DisheModel>?>
 }

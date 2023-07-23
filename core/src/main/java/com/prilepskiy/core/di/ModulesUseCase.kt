@@ -12,6 +12,7 @@ import com.prilepskiy.core.domain.interactors.GetDisheListCashUseCase
 import com.prilepskiy.core.domain.interactors.GetDisheListNetworkUseCase
 import com.prilepskiy.core.domain.interactors.GetTagsUseCase
 import com.prilepskiy.core.domain.interactors.SearchBtCashUseCase
+import com.prilepskiy.core.domain.interactors.SearchDisheByNameUseCase
 import com.prilepskiy.core.domain.interactors.UpdateBasketCashUseCase
 import com.prilepskiy.core.domain.usecase.GetAllSumUseCaseImpl
 import com.prilepskiy.core.domain.usecase.GetBasketCashUseCaseImpl
@@ -24,6 +25,7 @@ import com.prilepskiy.core.domain.usecase.GetDisheListCashUseCaseImpl
 import com.prilepskiy.core.domain.usecase.GetDisheListNetworkUseCaseImpl
 import com.prilepskiy.core.domain.usecase.GetTagsUseCaseImpl
 import com.prilepskiy.core.domain.usecase.SearchBtCashUseCaseImpl
+import com.prilepskiy.core.domain.usecase.SearchDisheByNameUseCaseImpl
 import com.prilepskiy.core.domain.usecase.UpdateBasketCashUseCaseImpl
 
 import org.koin.dsl.module
@@ -41,5 +43,8 @@ val useCaseModule = module {
     factory<UpdateBasketCashUseCase> { UpdateBasketCashUseCaseImpl(get()) }
     factory<SearchBtCashUseCase> { SearchBtCashUseCaseImpl(get()) }
     factory<GetAllSumUseCase> { GetAllSumUseCaseImpl(get()) }
+    factory<SearchDisheByNameUseCase> { SearchDisheByNameUseCaseImpl(get()) }
+
+
 
 }

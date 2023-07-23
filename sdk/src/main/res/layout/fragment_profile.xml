@@ -1,14 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.fragments.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment4" />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="@dimen/size_148"
+        android:layout_height="@dimen/size_148"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/size_16"
+        android:layout_marginEnd="@dimen/size_16"
+        android:src="@mipmap/ic_avatar" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/sfprodisplay_regular"
+        android:gravity="center"
+        tools:text="emailNane@email.com" />
+
+    <ExpandableListView
+        android:id="@+id/expendableListHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="0dp"
+        android:groupIndicator="@null"
+        android:visibility="visible" />
+
+    <ExpandableListView
+        android:id="@+id/expendableListFavorite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="0dp"
+        android:groupIndicator="@null"
+        android:visibility="visible" >
+
+    </ExpandableListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_16"
+            app:cardCornerRadius="@dimen/size_10">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btClearHistory"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/size_48"
+                android:padding="@dimen/size_10"
+                android:background="@color/blue"
+                android:fontFamily="@font/sfprodisplay_regular"
+                android:text="@string/clear_history"
+                android:textAllCaps="false"
+                android:textColor="@color/grey"
+                app:cardCornerRadius="@dimen/size_10"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_16"
+
+            app:cardCornerRadius="@dimen/size_10">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btClearFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/size_48"
+                android:padding="@dimen/size_10"
+                android:background="@color/blue"
+                android:fontFamily="@font/sfprodisplay_regular"
+                android:text="@string/clear_favorite"
+                android:textAllCaps="false"
+                android:textColor="@color/grey"
+                app:cardCornerRadius="@dimen/size_10"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/size_16"
+        app:cardCornerRadius="@dimen/size_10">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btExit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_48"
+
+            android:background="@color/blue"
+            android:fontFamily="@font/sfprodisplay_regular"
+            android:text="@string/exit"
+            android:textAllCaps="false"
+            android:textColor="@color/grey"
+            app:cardCornerRadius="@dimen/size_10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

@@ -15,11 +15,12 @@ import com.prilepskiy.sdk.databinding.ItemBasketBinding
 import com.prilepskiy.sdk.databinding.ItemDisheBinding
 
 class BasketAdapter(
-    private val onClickButtonPositive: (basket: BasketModel) -> Unit,
-    private val onClickButtonNigative: (basket: BasketModel) -> Unit
+    private val onClickButtonPositive: (basket: BasketModel,count:Int) -> Unit,
+    private val onClickButtonNigative: (basket: BasketModel,count:Int) -> Unit
 ) :
     ListAdapter<BasketModel, BasketAdapter.BasketHolder>(Comporator()) {
     class Comporator : DiffUtil.ItemCallback<BasketModel>() {
+
         override fun areItemsTheSame(oldItem: BasketModel, newItem: BasketModel): Boolean =
             oldItem.id == newItem.id
 
@@ -36,18 +37,28 @@ class BasketAdapter(
         private val binding = ItemBasketBinding.bind(view)
         fun bind(basket: BasketModel) {
             with(binding) {
+
+               var count= basket.colum
                 Glide.with(itemView)
                     .load(basket.image_url)
                     .into(imgDishe)
                 tvTitle.text = basket.name
-                val priceFormat=(basket.price*basket.colum).toString()+"₽"
+                val priceFormat=(basket.price).toString()+"₽"
                 tvPrice.text = priceFormat
-                val weightFormat=(basket.weight*basket.colum).toString()+"Г"
+                val weightFormat=(basket.weight).toString()+"Г"
                 tvWeight.text = weightFormat
                 tvColum.text = basket.colum.toString()
 
-                btNigotive.setOnClickListener { onClickButtonNigative(basket) }
-                btPositive.setOnClickListener { onClickButtonPositive(basket) }
+                btNigotive.setOnClickListener {
+                   // onClickButtonNigative(basket)
+                    tvColum.text = (--count).toString()
+
+                }
+                btPositive.setOnClickListener {
+                    //onClickButtonPositive(basket)
+                    tvColum.text = (++count).toString()
+
+                }
             }
 
 

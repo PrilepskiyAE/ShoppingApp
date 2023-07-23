@@ -9,7 +9,9 @@ import com.prilepskiy.core.domain.model.BasketModel
 import com.prilepskiy.core.presenter.viewmodel.ShoppingBasketFragmentViewModel
 import com.prilepskiy.sdk.databinding.FragmentShoppingBasketBinding
 import com.prilepskiy.sdk.ui.adapter.BasketAdapter
+import com.prilepskiy.sdk.ui.utils.formatter
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.job
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -19,12 +21,12 @@ class ShoppingBasketFragment :
     val viewModel: ShoppingBasketFragmentViewModel by viewModel()
 
     private val basketAdapter = BasketAdapter({
-        viewModel.updateBasketCash(it, true)
+        basket, count->
+        viewModel.updateBasketCash(basket, true)
         viewModel.getAllSumm()
     }, {
-        viewModel.updateBasketCash(it, false)
-
-
+            basket, count->
+        viewModel.updateBasketCash(basket, false)
     })
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,16 +47,15 @@ class ShoppingBasketFragment :
         }
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.basketModel.collectLatest {
+
                 basketAdapter.submitList(it)
-
-
             }
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.basketAllSumm.collectLatest {
                 if (it!=null){
-                val format="Оплатить $it ₽"
+                val format="Оплатить ${it.formatter()} ₽"
                 binding.btAdd.text=format
             } else {
                     val format="Оплатить 0 ₽"
